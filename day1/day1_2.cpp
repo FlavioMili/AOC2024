@@ -3,7 +3,7 @@
 #include <vector>
 #include <unordered_set>
 int main(int argc, char* argv[]){
-  int res = 0;
+  long long res = 0;
   int a, b;
   std::unordered_set<int> nums;
   std::vector<int> vecB;
