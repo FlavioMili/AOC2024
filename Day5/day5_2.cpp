@@ -16,26 +16,25 @@ int main() {
 
     // Parse the input file
     while (std::getline(file, line)) {
-        if (line.empty()) {
-            currentSection = nullptr;
-            continue;
-        }
-        std::stringstream ss(line);
-        std::string token;
+      if (line.empty()) {
+        currentSection = nullptr;
+        continue;
+      }
+      std::stringstream ss(line);
+      std::string token;
 
-        if (currentSection) {
-            std::pair<int, int> orderPair;
-            std::getline(ss, token, '|');
-            orderPair.first = std::stoi(token);
-            std::getline(ss, token, '|');
-            orderPair.second = std::stoi(token);
-            currentSection->push_back(orderPair);
-        }
-        else {
-            std::vector<int> nums;
-            while (std::getline(ss, token, ',')) nums.push_back(std::stoi(token));
-            outputPages.push_back(nums);
-        }
+      if (currentSection) {
+        std::pair<int, int> orderPair;
+        std::getline(ss, token, '|');
+        orderPair.first = std::stoi(token);
+        std::getline(ss, token, '|');
+        orderPair.second = std::stoi(token);
+        currentSection->push_back(orderPair);
+      } else {
+        std::vector<int> nums;
+        while (std::getline(ss, token, ',')) nums.push_back(std::stoi(token));
+        outputPages.push_back(nums);
+      }
     }
     file.close();
 
